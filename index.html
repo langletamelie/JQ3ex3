@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <title>Exercice3</title>
+  <script src="jquery-3.2.1.js"></script>
+</head>
+<body>
+  <form>
+    <label for="number"></label><input type="text" name="number" id="number" />
+    <button type="button" name="button" id="check">Vérifie si ça t'as bon </button>
+  </form>
+  <script>
+  function nbrAleatoire(min, max) {
+    var nb = min + (max-min+1)*Math.random();
+    return Math.floor(nb);
+  }
+  var nbTry = 0;
+  var nbr = nbrAleatoire(0,100);
+  $('#check').click(function(){
+    var getValue = $('#number').val()
+    nbTry ++;
+    $('#check').val(nbTry);
+    if (getValue == nbr){
+      alert('correct, vous avez réussi en ' + nbTry + ' coups');
+    }
+    else if (getValue < nbr) {
+      alert('plus');
+    }else{
+      alert('moins');
+    }
+  });
+  </script>
+</body>
+</html>
