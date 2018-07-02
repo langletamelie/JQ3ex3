@@ -11,21 +11,23 @@
     <button type="button" name="button" id="check">Vérifie si ça t'as bon </button>
   </form>
   <script>
-  function nbrAleatoire(min, max) {
-    var nb = min + (max-min+1)*Math.random();
-    return Math.floor(nb);
-  }
   var nbTry = 0;
-  var nbr = nbrAleatoire(0,100);
+  var regex = /^[0-9]+$/;
+  var randomNumber = Math.floor(Math.random()*100);
+  //ajout d'un clic au compteur à chaque essai
   $('#check').click(function(){
-    var getValue = $('#number').val()
     nbTry ++;
-    $('#check').val(nbTry);
-    if (getValue == nbr){
-      alert('correct, vous avez réussi en ' + nbTry + ' coups');
-    }
-    else if (getValue < nbr) {
-      alert('plus');
+    var getValue = $('#number').val();
+    if(regexNumber.test(getValue)){
+      $('#check').val(nbTry);
+      //si le nombre est correct
+      if (getValue == nbr){
+        alert('correct, vous avez réussi en ' + nbTry + ' coups');
+        //si le nombre est inférieur
+      }else if (getValue < nbr){
+        alert('plus');
+        //si le nombre est supérieur
+      }
     }else{
       alert('moins');
     }
